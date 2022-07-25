@@ -92,7 +92,7 @@ const Game = () => {
 
     return (
         <div className="game">
-            <div id="board-container" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+            <div id="board-container" onTouchStart={(evt)=>handleTouchStart(evt)} onTouchEnd={(evt)=>handleTouchEnd(evt)}>
                 <Board tiles={tiles} tileCountPerRow={tileCount} />
 
             </div>
