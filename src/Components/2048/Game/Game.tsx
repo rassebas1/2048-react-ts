@@ -11,7 +11,7 @@ const Game = () => {
     let startX = 0;
     let startY = 0;
 
-    const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    const handleTouchStart = (event: React.TouchEvent) => {
          event.preventDefault();
         console.log("touuche",event);
         
@@ -25,7 +25,7 @@ const Game = () => {
         startY = event.touches[0].screenY;
 
     }
-    const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    const handleTouchEnd = (event: React.TouchEvent) => {
          event.preventDefault();
         if (gameOver) {
             return;
