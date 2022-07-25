@@ -11,7 +11,7 @@ const Game = () => {
     let startX = 0;
     let startY = 0;
 
-    const handleTouchStart = (evt: TouchEventHandler) => {
+    const handleTouchStart = (evt: TouchEvent) => {
         evt.preventDefault();
         if (gameOver) {
             return;
@@ -23,7 +23,7 @@ const Game = () => {
         startY = evt.touches[0].screenY;
 
     }
-    const handleTouchEnd = (evt: TouchEventHandler) => {
+    const handleTouchEnd = (evt: TouchEvent) => {
         evt.preventDefault();
         if (gameOver) {
             return;
