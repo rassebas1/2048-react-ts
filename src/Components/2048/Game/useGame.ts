@@ -170,8 +170,7 @@ export const useGame = () => {
 
                 // previous tile become the current tile to check if the next tile can be merged with this one.
                 previousTile = tile;
-                //console.log(retrieveTileMap());
-                console.log(tileList);
+                
 
                 // only if tile has changed its position it will be updated
                 if (didTileMove(currentTile, tile)) {
