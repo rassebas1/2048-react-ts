@@ -11,6 +11,7 @@ import { GameReducer, initialState } from "./GameReducer";
 export const useGame = () => {
     const isInitialRender = useRef(true);
     const [score, setScore] = useState(0);
+    const [highScore, setHighScore] = useState(0);
     const [nextId] = useIds();
     // state
     const [state, dispatch] = useReducer(GameReducer, initialState);
@@ -170,7 +171,7 @@ export const useGame = () => {
 
                 // previous tile become the current tile to check if the next tile can be merged with this one.
                 previousTile = tile;
-                
+
 
                 // only if tile has changed its position it will be updated
                 if (didTileMove(currentTile, tile)) {
@@ -312,14 +313,39 @@ export const useGame = () => {
         const score = tileList.reduce((acc, tile) => {
             return acc + tile.value;
         }, 0);
+        newHighScore(score);
         setScore(score);
 
+    }
+    const newHighScore = (score: number) => {
+        if (score > highScore) {
+            setHighScore(score);
+            window.sessionStorage.setItem("highScore", highScore.toString());
+        }
     }
     useEffect(() => {
 
         if (isInitialRender.current) {
+            if (window.sessionStorage.getItem("highScore") === null) {
+                window.sessionStorage.setItem("highScore", highScore.toString());
+            } else {
+                setHighScore(Number(window.sessionStorage.getItem("highScore")));
+            }
+            console.log(highScore);
+
             createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 2 });
             createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 2 });
+            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 4 });
+            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 8 });
+            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 16 });
+            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 32 });
+            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 64 });
+            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 128 });
+            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 256 });
+            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 512 });
+            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 1024 });
+            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 2048 });
+            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 256 });
             isInitialRender.current = false;
             return;
         }
@@ -338,13 +364,14 @@ export const useGame = () => {
     const moveDown = moveDownFactory();
 
 
-    return [tileList, moveLeft, moveRight, moveUp, moveDown, resetGame, score] as [
+    return [tileList, moveLeft, moveRight, moveUp, moveDown, resetGame, score, highScore] as [
         TileMeta[],
         () => void,
         () => void,
         () => void,
         () => void,
         () => void,
+        number,
         number,
     ];
 };

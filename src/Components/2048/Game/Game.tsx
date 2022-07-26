@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useThrottledCallback } from "use-debounce";
 
 import { useGame } from "./useGame";
@@ -6,15 +6,17 @@ import Board from "../Board/BoardView";
 import { animationDuration, tileCount } from "../Board/models/BoardModels";
 
 const Game = () => {
-    const [tiles, moveLeft, moveRight, moveUp, moveDown, resetGame, score] = useGame();
+
+    const [tiles, moveLeft, moveRight, moveUp, moveDown, resetGame, score, highScore] = useGame();
     let gameOver = false;
     let startX = 0;
     let startY = 0;
+    const [oldHighScore, setOldHighScore] = useState(0);
 
-    const handleTouchStart = (event: React.TouchEvent) => {
-         event.preventDefault();
-        console.log("touuche",event);
-        
+    const handleTouchStart = (event: React.TouchEventHandler<HTMLDivElement>) => {
+
+        console.log("touuche", event);
+
         if (gameOver) {
             return;
         }
@@ -26,7 +28,7 @@ const Game = () => {
 
     }
     const handleTouchEnd = (event: React.TouchEvent) => {
-         event.preventDefault();
+        event.preventDefault();
         if (gameOver) {
             return;
         }
@@ -75,12 +77,16 @@ const Game = () => {
     // protects the reducer from being flooded with events.
     const throttledHandleKeyDown = useThrottledCallback(
         handleKeyDown,
+
         animationDuration,
         { leading: true, trailing: false }
     );
 
     useEffect(() => {
+        
+       
         window.addEventListener("keydown", throttledHandleKeyDown);
+
         // window.addEventListener("touchstart", handleTouchStart);
         // window.addEventListener("touchend", handleTouchEnd);
         return () => {
@@ -92,12 +98,13 @@ const Game = () => {
 
     return (
         <div className="game">
-            <div id="board-container" onTouchStart={(evt)=>handleTouchStart(evt)} onTouchEnd={(evt)=>handleTouchEnd(evt)}>
+            <div id="board-container" onTouchStart={(evt) => handleTouchStart(evt)} onTouchEnd={(evt) => handleTouchEnd(evt)}>
                 <Board tiles={tiles} tileCountPerRow={tileCount} />
 
             </div>
             <div>
                 <span style={{ color: "black" }}>Score: {score}</span>
+                <span style={{ color: "black" }}>Highest Score: {highScore}</span>
             </div>
             <button onClick={resetGame}>Reset</button>
         </div >

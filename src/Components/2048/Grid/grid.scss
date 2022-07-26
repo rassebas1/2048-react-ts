@@ -3,15 +3,26 @@
  .grid {
      display: flex;
      flex-wrap: wrap;
-     background-color: #bbada0;
-     border: $pixel-size solid #bbada0;
+     align-items: center;
+     justify-content: center;
+     box-shadow: 0 0 4px #5BB318,
+         0 0 8px #5BB318dd,
+         0 0 12px #5BB318bb,
+         0 0 16px #5BB31899,
+         0 0 20px #5BB31877,
+         0 0 24px #5BB31855,
+         0 0 28px #5BB31833,
+     ;
      border-radius: $pixel-size * 0.75;
+     
 
      &-cell {
          width: $pixel-size * 12.5;
          height: $pixel-size * 12.5;
          margin: $pixel-size * 1;
+         border: 1px solid #FFffff;
+         
          border-radius: $pixel-size * 0.5;
-         background: rgba(238, 228, 218, 0.35);
+         background: #1a1a1a1a;
      }
  }
