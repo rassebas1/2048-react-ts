@@ -30,17 +30,7 @@ button {
         box-shadow: 0 0 15px #5BB318;
     }
 
-    &:focus {
-        letter-spacing: 0.15em;
-        color: #1a1a1a;
-        background-color: #5BB318;
-    }
-
-    &:active {
-        letter-spacing: 0.15em;
-        color: #1a1a1a;
-        background-color: #5BB318;
-    }
+    
 
     &::before {
         content: "";
