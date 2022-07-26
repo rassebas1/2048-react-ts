@@ -102,11 +102,11 @@ const Game = () => {
 
         window.addEventListener("keydown", throttledHandleKeyDown);
 
-        window.addEventListener("touchstart", throttledHandleKeyDown, true);
-        window.addEventListener("touchend", throttledHandleKeyDown, true);
+        window.addEventListener("touchstart", () => throttledHandleKeyDown, true);
+        window.addEventListener("touchend", () => throttledHandleKeyDown, true);
         return () => {
-            window.removeEventListener("touchstart", throttledHandleKeyDown);
-            window.removeEventListener("touchend", throttledHandleKeyDown);
+            window.removeEventListener("touchstart", () => throttledHandleKeyDown);
+            window.removeEventListener("touchend", () => throttledHandleKeyDown);
             window.removeEventListener("keydown", throttledHandleKeyDown);
         };
     }, [throttledHandleKeyDown]);
