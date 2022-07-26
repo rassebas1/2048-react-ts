@@ -4,6 +4,7 @@ import { useThrottledCallback } from "use-debounce";
 import { useGame } from "./useGame";
 import Board from "../Board/BoardView";
 import { animationDuration, tileCount } from "../Board/models/BoardModels";
+import "./game.scss"
 
 const Game = () => {
 
@@ -104,9 +105,10 @@ const Game = () => {
                 <Board tiles={tiles} tileCountPerRow={tileCount} />
 
             </div>
-            <div>
-                <span style={{ color: "black" }}>Score: {score}</span>
-                <span style={{ color: "black" }}>Highest Score: {highScore}</span>
+            <div className="score-container">
+                <i></i>
+                <span>Score: {score}</span>
+                <span>Highest Score: {highScore}</span>
             </div>
             <button onClick={resetGame}>Reset</button>
         </div >
