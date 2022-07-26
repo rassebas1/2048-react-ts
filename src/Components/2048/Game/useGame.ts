@@ -335,17 +335,7 @@ export const useGame = () => {
 
             createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 2 });
             createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 2 });
-            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 4 });
-            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 8 });
-            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 16 });
-            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 32 });
-            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 64 });
-            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 128 });
-            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 256 });
-            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 512 });
-            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 1024 });
-            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 2048 });
-            createTile({ position: [Math.floor(Math.random() * 4), Math.floor(Math.random() * 4)], value: 256 });
+           
             isInitialRender.current = false;
             return;
         }

@@ -16,15 +16,15 @@
     & h1 {
         font-size: 32px;
         font-weight: bold;
-       
+
         border-radius: 5px;
         margin: 20px;
         padding-left: 80px;
         text-align: end;
         width: $pixel-size * 50 + 40px;
-        letter-spacing: ($pixel-size * 50)/4;
+        letter-spacing: calc(($pixel-size * 50)/4);
         margin-top: 0px;
-       
+
     }
 
     & .game {

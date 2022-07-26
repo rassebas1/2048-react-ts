@@ -22,9 +22,9 @@ const Board = ({ tiles, tileCountPerRow = defaultTileCount }: Props) => {
     ));
 
     return (
-        <div className="board">
+        <div className="board" style={{ "width": boardWidth }}>
             <BoardProvider
-                containerWidth={boardWidth}
+                containerWidth={containerWidth}
                 tileCount={tileCountPerRow}
             >
                 <div className="tile-container">{tileList}

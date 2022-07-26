@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { TouchEvent, useEffect, useState } from "react";
 import { useThrottledCallback } from "use-debounce";
 
 import { useGame } from "./useGame";
@@ -13,7 +13,7 @@ const Game = () => {
     let startY = 0;
     const [oldHighScore, setOldHighScore] = useState(0);
 
-    const handleTouchStart = (event: React.TouchEventHandler<HTMLDivElement>) => {
+    const handleTouchStart = (event: TouchEvent) => {
 
         console.log("touuche", event);
 
@@ -27,7 +27,8 @@ const Game = () => {
         startY = event.touches[0].screenY;
 
     }
-    const handleTouchEnd = (event: React.TouchEvent) => {
+    const handleTouchEnd = (event: TouchEvent) => {
+        console.log("touuche", event);
         event.preventDefault();
         if (gameOver) {
             return;
@@ -42,38 +43,52 @@ const Game = () => {
         var direction = () => { };
         if (Math.abs(deltaX) > 3 * Math.abs(deltaY) && Math.abs(deltaX) > 30) {
             direction = deltaX > 0 ? moveRight : moveLeft;
-            console.log("horizontal", direction);
+            console.log("horizontal");
 
         } else if (Math.abs(deltaY) > 3 * Math.abs(deltaX) && Math.abs(deltaY) > 30) {
             direction = deltaY > 0 ? moveDown : moveUp;
+            console.log("vertical");
 
         }
         if (direction) {
             direction();
         }
-        console.log();
+
 
     }
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: Event) => {
         // disables page scrolling with keyboard arrows
         e.preventDefault();
+        console.log(e);
 
-        switch (e.code) {
-            case "ArrowLeft":
-                moveLeft();
-                break;
-            case "ArrowRight":
-                moveRight();
-                break;
-            case "ArrowUp":
-                moveUp();
-                break;
-            case "ArrowDown":
-                moveDown();
-                break;
+        if (e.type === "keydown") {
+
+            switch (e.key) {
+                case "ArrowLeft":
+                    moveLeft();
+                    break;
+                case "ArrowRight":
+                    moveRight();
+                    break;
+                case "ArrowUp":
+                    moveUp();
+                    break;
+                case "ArrowDown":
+                    moveDown();
+                    break;
+            }
         }
-    };
-
+        if (e.type === "touchstart") {
+            e.preventDefault();
+            console.log("touch", e);
+            handleTouchStart(e);
+        }
+        if (e.type === "touchend") {
+            e.preventDefault();
+            console.log("touch", e);
+            handleTouchEnd(e);
+        }
+    }
     // protects the reducer from being flooded with events.
     const throttledHandleKeyDown = useThrottledCallback(
         handleKeyDown,
@@ -83,22 +98,22 @@ const Game = () => {
     );
 
     useEffect(() => {
-        
-       
+
+
         window.addEventListener("keydown", throttledHandleKeyDown);
 
-        // window.addEventListener("touchstart", handleTouchStart);
-        // window.addEventListener("touchend", handleTouchEnd);
+        window.addEventListener("touchstart", throttledHandleKeyDown,true);
+        window.addEventListener("touchend", throttledHandleKeyDown,true);
         return () => {
-            // window.removeEventListener("touchstart", handleTouchStart);
-            // window.removeEventListener("touchend", handleTouchEnd);
+            window.removeEventListener("touchstart", throttledHandleKeyDown);
+            window.removeEventListener("touchend", throttledHandleKeyDown);
             window.removeEventListener("keydown", throttledHandleKeyDown);
         };
     }, [throttledHandleKeyDown]);
 
     return (
         <div className="game">
-            <div id="board-container" onTouchStart={(evt) => handleTouchStart(evt)} onTouchEnd={(evt) => handleTouchEnd(evt)}>
+            <div id="board-container" >
                 <Board tiles={tiles} tileCountPerRow={tileCount} />
 
             </div>

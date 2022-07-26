@@ -7,7 +7,7 @@ export type TileMeta = {
     mergeWith?: number;
 };
 
-const tileMargin = 2.25 * pixelSize;
+const tileMargin = 2 * pixelSize - 2;
 
 const tileWidthMultiplier = 13;
 
