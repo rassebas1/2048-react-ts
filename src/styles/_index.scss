@@ -1,5 +1,7 @@
+@import "./variables.scss";
+
 .App {
-    background-color: #fafafa;
+    background-color: #1a1a1a1a;
     min-height: 100vh;
     width: 100vw;
     display: flex;
@@ -7,15 +9,25 @@
     align-items: center;
     justify-content: center;
     font-size: small;
-    color: #1a1a1a;
+    color: #5BB318;
     margin: 0px;
     padding: 10px;
+
     & h1 {
-        font-size: inherit;
-        margin-bottom: 10px;
+        font-size: 32px;
+        font-weight: bold;
+
+        border-radius: 5px;
+        margin: 20px;
+        padding-left: 80px;
+        text-align: end;
+        width: $pixel-size * 50 + 40px;
+        letter-spacing: calc(($pixel-size * 50)/4);
         margin-top: 0px;
+
     }
-    & .game{
+
+    & .game {
         display: flex;
         justify-content: center;
         align-items: center;

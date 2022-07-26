@@ -19,4 +19,4 @@ export const animationDuration = 250;
 /**
  * The board margin (left, right, top, bottom).
  */
-export const boardMargin = 2 * pixelSize;
+export const boardMargin = 1* pixelSize;

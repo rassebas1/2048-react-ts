@@ -35,68 +35,70 @@
     /* -=-=-=-= END OF TEXT SIZE =-=-=-=- */
 
     &-2 {
-        background: #eee4da;
+        background: #F900BF;
+        color: #fff;
         box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0),
             inset 0 0 0 1px rgba(255, 255, 255, 0);
     }
 
     &-4 {
-        background: #ede0c8;
+        background: #9900F0;
+        color: #fff;
         box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0),
             inset 0 0 0 1px rgba(255, 255, 255, 0);
     }
 
     &-8 {
         color: #f9f6f2;
-        background: #f2b179;
+        background: #0c6d7f;
     }
 
     &-16 {
         color: #f9f6f2;
-        background: #f59563;
+        background: #00FAAC;
     }
 
     &-32 {
         color: #f9f6f2;
-        background: #f67c5f;
+        background: #85EF47;
     }
 
     &-64 {
         color: #f9f6f2;
-        background: #f65e3b;
+        background: #00BD56;
     }
 
     &-128 {
         color: #f9f6f2;
-        background: #edcf72;
+        background: #5EE6EB;
         box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381),
             inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
     }
 
     &-256 {
         color: #f9f6f2;
-        background: #edcc61;
+        background: #F7EC09;
         box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746),
             inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
     }
 
     &-512 {
         color: #f9f6f2;
-        background: #edc850;
+        background: #FFD36E;
         box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683),
             inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
     }
 
     &-1024 {
         color: #f9f6f2;
-        background: #edc53f;
+        background: #FEB139;
         box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619),
             inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
     }
 
     &-2048 {
         color: #f9f6f2;
-        background: #edc22e;
+        background: #FF8D29;
         box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556),
             inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
     }

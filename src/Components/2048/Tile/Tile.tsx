@@ -44,7 +44,7 @@ export default function TileView(props: TileProps) {
      * Converts tile position from array index to pixels.
      */
     const positionToPixels = (position: number) => {
-        return (position / tileCount) * (containerWidth as number);
+        return ((position / tileCount) * (containerWidth as number)-7);
     };
 
     // all animations come from CSS transition, and we pass them as styles
