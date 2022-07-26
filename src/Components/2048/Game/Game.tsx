@@ -14,9 +14,7 @@ const Game = () => {
     const [oldHighScore, setOldHighScore] = useState(0);
 
     const handleTouchStart = (event: TouchEvent) => {
-
-        console.log("touuche", event);
-
+        event.preventDefault();
         if (gameOver) {
             return;
         }
@@ -28,7 +26,6 @@ const Game = () => {
 
     }
     const handleTouchEnd = (event: TouchEvent) => {
-        console.log("touuche", event);
         event.preventDefault();
         if (gameOver) {
             return;
@@ -38,16 +35,12 @@ const Game = () => {
         }
         var deltaX = event.changedTouches[0].screenX - startX;
         var deltaY = event.changedTouches[0].screenY - startY;
-        console.log("end", deltaX);
-        console.log("end", deltaY);
         var direction = () => { };
         if (Math.abs(deltaX) > 3 * Math.abs(deltaY) && Math.abs(deltaX) > 30) {
             direction = deltaX > 0 ? moveRight : moveLeft;
-            console.log("horizontal");
 
         } else if (Math.abs(deltaY) > 3 * Math.abs(deltaX) && Math.abs(deltaY) > 30) {
             direction = deltaY > 0 ? moveDown : moveUp;
-            console.log("vertical");
 
         }
         if (direction) {
@@ -56,10 +49,8 @@ const Game = () => {
 
 
     }
-    const handleKeyDown = (e: KeyboardEvent | TouchEvent | MouseEvent) => {
+    const handleKeyDown = (e: KeyboardEvent | TouchEvent) => {
         // disables page scrolling with keyboard arrows
-        e.preventDefault();
-        console.log(e);
 
         if (e.type === "keydown") {
             const evt = e as KeyboardEvent;
@@ -79,13 +70,9 @@ const Game = () => {
             }
         }
         if (e.type === "touchstart") {
-            e.preventDefault();
-            console.log("touch", e);
             handleTouchStart(e as TouchEvent);
         }
         if (e.type === "touchend") {
-            e.preventDefault();
-            console.log("touch", e);
             handleTouchEnd(e as TouchEvent);
         }
     }
@@ -102,8 +89,8 @@ const Game = () => {
 
         window.addEventListener("keydown", throttledHandleKeyDown);
 
-        window.addEventListener("touchstart", () => throttledHandleKeyDown, true);
-        window.addEventListener("touchend", () => throttledHandleKeyDown, true);
+        window.addEventListener("touchstart", (evt) => throttledHandleKeyDown(evt as unknown as TouchEvent), true);
+        window.addEventListener("touchend", (evt) => throttledHandleKeyDown(evt as unknown as TouchEvent), true);
         return () => {
             window.removeEventListener("touchstart", () => throttledHandleKeyDown);
             window.removeEventListener("touchend", () => throttledHandleKeyDown);
