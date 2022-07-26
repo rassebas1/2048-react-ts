@@ -56,14 +56,14 @@ const Game = () => {
 
 
     }
-    const handleKeyDown = (e: Event) => {
+    const handleKeyDown = (e: KeyboardEvent | TouchEvent | MouseEvent) => {
         // disables page scrolling with keyboard arrows
         e.preventDefault();
         console.log(e);
 
         if (e.type === "keydown") {
 
-            switch (e.key) {
+            switch (e.code) {
                 case "ArrowLeft":
                     moveLeft();
                     break;
@@ -81,12 +81,12 @@ const Game = () => {
         if (e.type === "touchstart") {
             e.preventDefault();
             console.log("touch", e);
-            handleTouchStart(e);
+            handleTouchStart(e as TouchEvent);
         }
         if (e.type === "touchend") {
             e.preventDefault();
             console.log("touch", e);
-            handleTouchEnd(e);
+            handleTouchEnd(e as TouchEvent);
         }
     }
     // protects the reducer from being flooded with events.
@@ -102,8 +102,8 @@ const Game = () => {
 
         window.addEventListener("keydown", throttledHandleKeyDown);
 
-        window.addEventListener("touchstart", throttledHandleKeyDown,true);
-        window.addEventListener("touchend", throttledHandleKeyDown,true);
+        window.addEventListener("touchstart", throttledHandleKeyDown, true);
+        window.addEventListener("touchend", throttledHandleKeyDown, true);
         return () => {
             window.removeEventListener("touchstart", throttledHandleKeyDown);
             window.removeEventListener("touchend", throttledHandleKeyDown);
