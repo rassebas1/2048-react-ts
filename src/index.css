@@ -3,7 +3,7 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-
+  touch-action: none;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -30,7 +30,7 @@ body {
   place-items: center;
   min-width: 100vw;
   min-height: 100vh;
-  touch-action: none;
+  
 }
 
 h1 {

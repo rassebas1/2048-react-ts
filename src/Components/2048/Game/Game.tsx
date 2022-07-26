@@ -89,8 +89,8 @@ const Game = () => {
 
         window.addEventListener("keydown", throttledHandleKeyDown);
 
-        window.addEventListener("touchstart", (evt) => throttledHandleKeyDown(evt as unknown as TouchEvent), true);
-        window.addEventListener("touchend", (evt) => throttledHandleKeyDown(evt as unknown as TouchEvent), true);
+        window.addEventListener("touchstart", (evt) => throttledHandleKeyDown(evt as unknown as TouchEvent), false);
+        window.addEventListener("touchend", (evt) => throttledHandleKeyDown(evt as unknown as TouchEvent), false);
         return () => {
             window.removeEventListener("touchstart", () => throttledHandleKeyDown);
             window.removeEventListener("touchend", () => throttledHandleKeyDown);
