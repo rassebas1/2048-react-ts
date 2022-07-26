@@ -62,8 +62,8 @@ const Game = () => {
         console.log(e);
 
         if (e.type === "keydown") {
-
-            switch (e.code) {
+            const evt = e as KeyboardEvent;
+            switch (evt.code) {
                 case "ArrowLeft":
                     moveLeft();
                     break;
