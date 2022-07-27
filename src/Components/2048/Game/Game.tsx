@@ -108,7 +108,7 @@ const Game = () => {
             <div className="score-container">
                 <i></i>
                 <span>Score: {score}</span>
-                <span>Highest Score: {highScore}</span>
+                <span>HighScore: {highScore}</span>
             </div>
             <button onClick={resetGame}>Reset</button>
         </div >
