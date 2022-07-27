@@ -1,4 +1,4 @@
-$pixel-size: 8px;
+$pixel-size: 7px;
 
 @mixin change($pixel-size__new) {
 
@@ -35,9 +35,9 @@ $pixel-size: 8px;
 }
 
 @media screen and (min-width: 1200px) {
-    @include change(10px);
+    @include change(8px);
 }
 
 @media screen and (max-width: 520px) {
-    @include change(6px);
+    @include change(5px);
 }
