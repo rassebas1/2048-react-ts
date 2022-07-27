@@ -44,13 +44,13 @@ export default function TileView(props: TileProps) {
      * Converts tile position from array index to pixels.
      */
     const positionToPixels = (position: number) => {
-        return ((position / tileCount) * (containerWidth as number)-7);
+        return ((position / tileCount) * (containerWidth as number));
     };
 
     // all animations come from CSS transition, and we pass them as styles
     const style = {
-        top: positionToPixels(props.position[1]),
-        left: positionToPixels(props.position[0]),
+        gridRow: props.position[1] + 1,
+        gridColumn: props.position[0] + 1,
         transform: `scale(${scale})`,
         zIndex: props.zIndex,
     };
