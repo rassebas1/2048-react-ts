@@ -34,10 +34,10 @@ $pixel-size: 8px;
 
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
     @include change(10px);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 520px) {
     @include change(6px);
 }

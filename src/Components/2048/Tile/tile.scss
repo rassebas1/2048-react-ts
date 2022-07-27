@@ -3,7 +3,7 @@
 .tile {
     position: absolute;
     display: flex;
-    
+
     align-items: center;
     justify-content: center;
     width: $pixel-size * 12.5;
@@ -14,7 +14,7 @@
     color: #776e65;
     font-weight: bold;
     text-align: center;
-    //font-size: $pixel-size * 6;
+    font-size: $pixel-size * 6;
     line-height: 2.1;
     transition-property: left, top, transform;
     transition-duration: 250ms, 250ms, 100ms;
