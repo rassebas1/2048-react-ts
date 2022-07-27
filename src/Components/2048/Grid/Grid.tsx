@@ -17,6 +17,6 @@ const Grid = () => {
         return cells;
     };
 
-    return <div className="grid" style={{ 'width': containerWidth }}> {renderGrid()}</div >;
+    return <div className="grid" > {renderGrid()}</div >;
 };
 export default Grid;
