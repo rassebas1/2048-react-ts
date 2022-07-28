@@ -5,7 +5,7 @@ $pixel-size: 7px;
     $pixel-size: $pixel-size__new;
 
     // your SCSS here
-   
+
 
     .grid {
         display: grid;
@@ -25,7 +25,7 @@ $pixel-size: 7px;
     .tile {
         width: $pixel-size__new * 12.5;
         height: $pixel-size__new * 12.5;
-       // margin: $pixel-size__new * 1 - 1;
+        //margin: 1px;
         font-size: $pixel-size * 6;
     }
 

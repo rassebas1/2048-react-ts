@@ -37,10 +37,10 @@ const Game = () => {
         var deltaX = event.changedTouches[0].screenX - startX;
         var deltaY = event.changedTouches[0].screenY - startY;
         var direction = () => { };
-        if (Math.abs(deltaX) > 2 * Math.abs(deltaY) && Math.abs(deltaX) > 30) {
+        if (Math.abs(deltaX) > 2 * Math.abs(deltaY) && Math.abs(deltaX) > 20) {
             direction = deltaX > 0 ? moveRight : moveLeft;
 
-        } else if (Math.abs(deltaY) > 2 * Math.abs(deltaX) && Math.abs(deltaY) > 30) {
+        } else if (Math.abs(deltaY) > 2 * Math.abs(deltaX) && Math.abs(deltaY) > 20) {
             direction = deltaY > 0 ? moveDown : moveUp;
 
         }
