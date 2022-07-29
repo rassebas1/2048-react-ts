@@ -16,17 +16,20 @@ const Game = () => {
 
     const handleTouchStart = (event: TouchEvent) => {
         event.preventDefault();
+        console.log("touch start", event.touches);
+
         if (gameOver) {
             return;
         }
         if (event.touches.length != 1) {
             return;
         }
-        startX = event.touches[0].screenX;
-        startY = event.touches[0].screenY;
+        startX = event.touches[0].clientX;
+        startY = event.touches[0].clientY;
 
     }
     const handleTouchEnd = (event: TouchEvent) => {
+        console.log("touch end", event.changedTouches);
         event.preventDefault();
         if (gameOver) {
             return;
@@ -34,8 +37,8 @@ const Game = () => {
         if (event.changedTouches.length != 1) {
             return;
         }
-        var deltaX = event.changedTouches[0].screenX - startX;
-        var deltaY = event.changedTouches[0].screenY - startY;
+        var deltaX = event.changedTouches[0].clientX - startX;
+        var deltaY = event.changedTouches[0].clientY - startY;
         var direction = () => { };
         if (Math.abs(deltaX) > 2 * Math.abs(deltaY) && Math.abs(deltaX) > 20) {
             direction = deltaX > 0 ? moveRight : moveLeft;
