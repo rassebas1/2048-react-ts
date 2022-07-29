@@ -5,6 +5,7 @@ import { useGame } from "./useGame";
 import Board from "../Board/BoardView";
 import { animationDuration, tileCount } from "../Board/models/BoardModels";
 import "./game.scss"
+import { $CombinedState } from "@reduxjs/toolkit";
 
 const Game = () => {
 
@@ -74,7 +75,9 @@ const Game = () => {
             }
         }
         if (e.type === "touchstart") {
+
             handleTouchStart(e as TouchEvent);
+
         }
         if (e.type === "touchend") {
             handleTouchEnd(e as TouchEvent);
