@@ -3,11 +3,14 @@
 .tile {
     position: absolute;
     display: flex;
+
     align-items: center;
     justify-content: center;
     width: $pixel-size * 12.5;
     height: $pixel-size * 12.5;
-    margin: $pixel-size * 1;
+    margin: $pixel-size *1;
+    
+    align-self: auto;
     border-radius: $pixel-size * 0.5;
     background-color: #eee4da;
     color: #776e65;

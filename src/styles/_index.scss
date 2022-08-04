@@ -2,7 +2,8 @@
 
 .App {
     background-color: #1a1a1a1a;
-    min-height: 100vh;
+    height: 100vh;
+    
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -11,14 +12,14 @@
     font-size: small;
     color: #5BB318;
     margin: 0px;
-    padding: 10px;
+    overflow: hidden;
 
     & h1 {
         font-size: 32px;
         font-weight: bold;
 
         border-radius: 5px;
-        margin: 20px;
+        margin: 15px;
         padding-left: 80px;
         text-align: end;
         width: $pixel-size * 50 + 40px;

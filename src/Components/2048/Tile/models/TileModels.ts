@@ -7,10 +7,14 @@ export type TileMeta = {
     mergeWith?: number;
 };
 
-const tileMargin = 2 * pixelSize - 2;
+const tileMargin = 2 * pixelSize() - 2;
 
 const tileWidthMultiplier = 13;
 
-const tileWidth = tileWidthMultiplier * pixelSize;
+const tileWidth = tileWidthMultiplier * pixelSize();
 
-export const tileTotalWidth = tileWidth + tileMargin;
+export function tileTotalWidth(): number {
+    console.log(tileWidth + tileMargin);
+
+    return tileWidth + tileMargin
+};

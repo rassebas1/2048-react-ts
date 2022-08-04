@@ -12,9 +12,10 @@ type Props = {
 
 const Board = ({ tiles, tileCountPerRow = defaultTileCount }: Props) => {
     // container width = tile width * tile count per row
-    const containerWidth = tileTotalWidth * tileCountPerRow;
+    const containerWidth = tileTotalWidth() * tileCountPerRow;
     // board width = container width + margin
     const boardWidth = containerWidth + boardMargin;
+    console.log(boardWidth, containerWidth, tileTotalWidth());
 
     // render all tiles on the board
     const tileList = tiles.map(({ id, ...restProps }) => (
@@ -22,7 +23,7 @@ const Board = ({ tiles, tileCountPerRow = defaultTileCount }: Props) => {
     ));
 
     return (
-        <div className="board" style={{ "width": boardWidth }}>
+        <div className="board" style={{ "width": "${containerWidth}" }} >
             <BoardProvider
                 containerWidth={containerWidth}
                 tileCount={tileCountPerRow}

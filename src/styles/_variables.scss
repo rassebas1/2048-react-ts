@@ -1,9 +1,41 @@
-$pixel-size: 8px;
+$pixel-size: 7px;
 
-// @media screen and (min-width: 768px) {
-//     $pixel-size: 12px;
-// }
+@mixin change($pixel-size__new) {
 
-// @media screen and (min-width: 480px) {
-//     $pixel-size: 6px;
-// }
+    $pixel-size: $pixel-size__new;
+
+    // your SCSS here
+
+
+    .grid {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: $pixel-size * 1;
+
+        &-cell {
+            width: $pixel-size * 12.5;
+            height: $pixel-size * 12.5;
+            //  margin: $pixel-size * 1;
+            border: 1px solid #FFffff;
+            border-radius: $pixel-size * 0.5;
+            background: #1a1a1a1a;
+        }
+    }
+
+    .tile {
+        width: $pixel-size__new * 12.5;
+        height: $pixel-size__new * 12.5;
+        //margin: 1px;
+        font-size: $pixel-size * 6;
+    }
+
+
+}
+
+@media screen and (min-width: 1200px) {
+    @include change(8px);
+}
+
+@media screen and (max-width: 520px) {
+    @include change(5px);
+}
